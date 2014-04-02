@@ -24,6 +24,15 @@ public class LinkedList {
 		}
 		System.out.println("The list elements are");
 		display(head);
+		
+		System.out.println("enter element to be deleted");
+		int data=Integer.parseInt(br.readLine());
+		Node temp=delete(data);
+		if(temp==null){
+			System.out.println("Element not found");
+		}
+		System.out.println("list after deletion");
+		display(head);
 
 	}
 	
@@ -52,6 +61,29 @@ public class LinkedList {
 			System.out.println(first.info);
 			first=first.next;
 		}
+	}
+	
+	public static Node delete(int data){
+		if(head==null){
+			return null;
+		}
+		if(data==head.info){
+			Node temp=head;
+			head=head.next;
+			return temp;
+		}
+		Node next=head.next;
+		Node prev=head;
+		while(next!=null){
+			if(data==next.info){
+				Node temp=next;
+				prev.next=next.next;
+				return temp;
+			}
+			next=next.next;
+			prev=prev.next;
+		}
+		return null;
 	}
 
 }
