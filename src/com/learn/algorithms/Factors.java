@@ -1,33 +1,23 @@
 package com.learn.algorithms;
 
-import java.io.*;
-
-
 public class Factors {
 
-	public static void main(String[] args) throws Exception{
-		// TODO Auto-generated method stub
-		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
-		int number=Integer.parseInt(args[0]);
-		String factorString=number+"*"+1;
-		System.out.println(factorString);
-		factors(number,"",number);
-		//printFactorsList(number, number + "*" + 1 + "\n", number);
-
+	public static void main(String[] args){		
+		int n=Integer.parseInt("8");
+		String str=1+"*"+n;
+		System.out.println(str);
+		factors(n,"",n);
 	}
 	
-	private static void factors(int n, String factorString,int prev){
-			
-		for(int i=n-1;i>=2;i--){
-			if (n % i != 0)
-                continue;
-            if (i > prev)
+	private static void factors(int n, String str,int prev_i){			
+		for(int i=2;i<=n-1;i++){
+			if (n % i != 0 || i > prev_i)
                 continue;
             int q = n / i;					
-		    if (q <= i && q<= prev) {
-		            System.out.println(factorString + q + "*" + i);
+		    if (q <= i && q<= prev_i) {
+		            System.out.println(str + q + "*" + i);
 		    }		    			
-			factors(q, factorString + i + "*", i);			
+			factors(q, str + i + "*", i);			
 		}	
 	}		
 }
