@@ -8,7 +8,7 @@ class Node{
 
 
 
-public class LinkedList {
+ class LinkedList {
 
 	static Node head=null;
 	static int listSize=0;
