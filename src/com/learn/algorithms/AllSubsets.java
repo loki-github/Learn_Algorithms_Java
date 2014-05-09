@@ -23,6 +23,7 @@ public class AllSubsets {
 	private static ArrayList findAllSubSets(ArrayList set){
 		ArrayList allSubsets=new ArrayList();
 		int max=1<<set.size();
+		System.out.println("max value="+max);
 		for(int i=0;i<max;i++){
 			ArrayList subSet=new ArrayList();
 			int k=i;

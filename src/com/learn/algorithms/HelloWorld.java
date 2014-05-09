@@ -7,8 +7,20 @@ public class HelloWorld {
 		int row=1,col=2;
 		//makeZeros(mat, row, col, 3, 3);
 		int inp[]=new int[]{100,2,-30,-20,-40,-99,6,1,8,9,20,80,99,-90,120};
-		find3Largest(inp);
-		find3Largest(inp);
+//		swap(inp);
+//		System.out.println(inp[0]+" "+inp[1]);
+//		find3Largest(inp);
+//		find3Largest(inp);
+		Integer a=new Integer(3);
+		Integer b=new Integer(5);
+		swap(a,b);
+		System.out.println("a="+a+" b="+b);
+	}
+	
+	private static void swap(Integer a,Integer b){
+		int temp=a;
+		a=b;
+		b=temp;
 	}
 	
 	private static void makeZeros(int[][] mat,int row,int col,int m,int n){
@@ -59,5 +71,9 @@ public class HelloWorld {
 		System.out.println("max1="+max1+" max2="+max2+" max3="+max3+"min1="+min1+" min2="+min2);
 	}
 	
-	
+	private static void swap(int inp[]){
+		int temp=inp[0];
+		inp[0]=inp[1];
+		inp[1]=temp;
+	}
 }

@@ -3,7 +3,7 @@ package com.learn.algorithms;
 public class Factors {
 
 	public static void main(String[] args){		
-		int n=Integer.parseInt("8");
+		int n=Integer.parseInt("24");
 		String str=1+"*"+n;
 		System.out.println(str);
 		factors(n,"",n);

@@ -1,6 +1,6 @@
 package com.learn.algorithms;
 
-public class Test {
+public class Hill {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Integer[] l = new Integer[] {3,3,2};
