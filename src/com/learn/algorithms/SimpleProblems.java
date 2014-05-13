@@ -9,7 +9,8 @@ public class SimpleProblems {
 //		int[] numArray=new int[]{4,6,7,8};
 //		int[] indeces=new int[]{3,1,0,2};
 //		arrayIndexSort(numArray, indeces);
-		countBinary1s(-3);
+//		countBinary1s(-3);
+		System.out.println(22%100);
 
 	}
 	
