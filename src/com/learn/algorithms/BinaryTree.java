@@ -24,10 +24,11 @@ public class BinaryTree {
 	static BTNode root2=null;
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int[] tree1={12,10,13,9,11,14};
+		int[] tree1={100,50,150,45,51,140,165,40,46,48,60,139,141,164,166};
 		for(int i=0;i<tree1.length;i++){
 			insertIntoBST1(root1,tree1[i]);
 		}
+		printEdgeNodes(root1);
 		
 //		int[] tree2={5,4,3};
 //		for(int i=0;i<tree2.length;i++){
@@ -38,11 +39,11 @@ public class BinaryTree {
 //		int[] path=new int[3];
 //		printPaths(root, path, 0);
 		
-		System.out.println("Tree1 elements in In order traversal original:");
-		ArrayList list=preOrder(root1);
-		for(int i=0;i<list.size();i++){
-			System.out.println(list.get(i));
-		}
+//		System.out.println("Tree1 elements in In order traversal original:");
+//		ArrayList list=preOrder(root1);
+//		for(int i=0;i<list.size();i++){
+//			System.out.println(list.get(i));
+//		}
 //		doubleTree(root1);
 		
 		
@@ -172,7 +173,6 @@ public class BinaryTree {
 		if(tempRoot==null){
 			return;
 		}
-		
 		if(l==0){
 			System.out.println(tempRoot.info);
 		}else{	
@@ -360,6 +360,23 @@ public class BinaryTree {
 		}else{
 			printPaths(root.left, path, index);
 			printPaths(root.right, path, index);
+		}
+	}
+	
+	public static void printEdgeNodes(BTNode node) { 
+		   System.out.println(node.info);
+		   _printEdgeNodes(node.left,true,false);
+		   _printEdgeNodes(node.right,false,true);
+		 }
+		 
+	public static void _printEdgeNodes(BTNode node, boolean isLeftEdge,
+			boolean isRightEdge) {
+		if (node != null) {
+			_printEdgeNodes(node.left, isLeftEdge, false);	
+			if (isLeftEdge || isRightEdge || (node.left==null && node.right==null)) {
+				System.out.println(node.info);
+			}
+			_printEdgeNodes(node.right, false, isRightEdge);			
 		}
 	}
 }

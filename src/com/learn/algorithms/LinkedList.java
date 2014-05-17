@@ -15,26 +15,55 @@ class Node{
 	
 	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
-		System.out.println("enter list size");
-		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
-		listSize=Integer.parseInt(br.readLine());
-		System.out.println("enter list elements");
-		for(int i=0;i<listSize;i++){
-			insert(Integer.parseInt(br.readLine()));
+//		System.out.println("enter list size");
+//		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+//		listSize=Integer.parseInt(br.readLine());
+//		System.out.println("enter list elements");
+		int[] list=new int[]{5,1,2,3,4,8};
+		for(int i=0;i<list.length;i++){
+			insert(list[i]);
 		}
 		System.out.println("The list elements are");
 		display(head);
+		System.out.println("middle elment="+getMiddle(head).info);
+		System.out.println("Reversed List:");
+		display(iterativeListReverse(head));
 		
-		System.out.println("enter element to be deleted");
-		int data=Integer.parseInt(br.readLine());
-		Node temp=delete(data);
-		if(temp==null){
-			System.out.println("Element not found");
-		}
-		System.out.println("list after deletion");
-		display(head);
+//		System.out.println("enter element to be deleted");
+//		int data=Integer.parseInt(br.readLine());
+//		Node temp=delete(data);
+//		if(temp==null){
+//			System.out.println("Element not found");
+//		}
+//		System.out.println("list after deletion");
+//		display(head);
 
 	}
+	
+	private static Node iterativeListReverse(Node head){
+		Node prev=null,curr=head;
+		while(curr!=null){
+			Node temp=curr.next;
+			curr.next=prev;
+			prev=curr;
+			curr=temp;
+		}
+		return prev;
+	}
+	
+	
+	private static Node getMiddle(Node head){
+		Node fast=head,slow=head;
+		while(fast!=null){
+			fast=fast.next;
+			if(fast!=null){
+				fast=fast.next;
+				slow=slow.next;
+			}
+		}
+		return slow;
+	}
+	
 	
 	public static Node getNode(){
 		Node temp=new Node();
