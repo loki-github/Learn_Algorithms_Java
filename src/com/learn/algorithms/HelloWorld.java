@@ -6,15 +6,15 @@ public class HelloWorld {
 		int[][] mat=new int[3][3];
 		int row=1,col=2;
 		//makeZeros(mat, row, col, 3, 3);
-		int inp[]=new int[]{100,2,-30,-20,-40,-99,6,1,8,9,20,80,99,-90,120};
+		int inp[]=new int[]{-5,-3,-2,-100,-4,-6};
 //		swap(inp);
 //		System.out.println(inp[0]+" "+inp[1]);
+		find3Largest(inp);
 //		find3Largest(inp);
-//		find3Largest(inp);
-		Integer a=new Integer(3);
-		Integer b=new Integer(5);
-		swap(a,b);
-		System.out.println("a="+a+" b="+b);
+//		Integer a=new Integer(3);
+//		Integer b=new Integer(5);
+//		swap(a,b);
+//		System.out.println("a="+a+" b="+b);
 	}
 	
 	private static void swap(Integer a,Integer b){
@@ -37,16 +37,13 @@ public class HelloWorld {
 		}
 	}
 	
-	private static void printPairSum(int a[],int S){
-		
-	}
 	
 	private static void find3Largest(int[] inp){
-		int max1=0;
-		int max2=0;
-		int max3=0;
-		int min1=0;
-		int min2=0;
+		int max1=Integer.MIN_VALUE;
+		int max2=Integer.MIN_VALUE;
+		int max3=Integer.MIN_VALUE;
+		int min1=Integer.MAX_VALUE;
+		int min2=Integer.MAX_VALUE;
 	
 		for(int i=0;i<inp.length;i++){
 			if(inp[i]>max1){
@@ -68,7 +65,7 @@ public class HelloWorld {
 				
 		}
 				
-		System.out.println("max1="+max1+" max2="+max2+" max3="+max3+"min1="+min1+" min2="+min2);
+		System.out.println("max1="+max1+" max2="+max2+" max3="+max3+" min1="+min1+" min2="+min2);
 	}
 	
 	private static void swap(int inp[]){

@@ -9,7 +9,7 @@ public class CharactersAllPermutations {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		String a="ab";
+		String a="abc";
 		ArrayList<String> res=getPerms(a);
 		Iterator it=res.iterator();
 		while(it.hasNext()){
