@@ -3,6 +3,7 @@ package com.learn.algorithms;
 import java.util.ArrayList;
 import java.util.Queue;
 import java.util.Stack;
+import java.util.*;
 
 class BTNode {
 	int info;
@@ -20,86 +21,74 @@ public class BinaryTree {
 
 	static BTNode root1 = null;
 	static BTNode root2 = null;
+	static BTNode root = null;
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		int[] anArray = {3,4,5,9,10};
+		BTNode temp = new BTNode(9);
+		setNode(temp);
+		System.out.println(temp.info);
 		
-		insertIntoBT(root1, anArray, 0, anArray.length);
-		ArrayList path=new ArrayList();
-		printPaths(root1, path);
-		System.out.println("Max sum in tree");
-		int maxSum=maxSumInBT(root1);
-		System.out.println(maxSum);
-		System.out.println("max sum path");
-		ArrayList path1=new ArrayList();
-		printMaxSumPath(root1, 0, path1, maxSum);
-//		System.out.println(findMaxInBt(root1, Integer.MIN_VALUE));
-		// convert(root1);
-		// System.out.println("after converting to list");
-		// printList(listHead);
-		//
-//		 for (int i = 0; i < anArray.length; i++) {
-//		 insertIntoBST1(root1, anArray[i]);
-//		 }
-//		 System.out.println("list elements");
-//		 inOrderIteration(root1);
-//		 replaceNodesWithSumOfSubtrees(root1);
-//		 System.out.println("after replacing");
-//		 inOrderIteration(root1); 
-		// replaceNodesWithSumOfGreaterNodes(root1);
-		// System.out.println("after adding sum");
-		// inOrderIteration(root1);
-		//
-		// System.out.println(root1.info);
-		// printAlternateCorner(root1.left,true,false,false);
-		// printAlternateCorner(root1.right,false,true,false);
-		// printEdgeNodes(root1);
-		// findBTAmplitude(root1, Integer.MIN_VALUE, Integer.MAX_VALUE);
-		// System.out.println(amplitude);
-		//
-		// int[] tree2={5,4,3};
-		// for(int i=0;i<tree2.length;i++){
-		// insertIntoBST2(root2,tree2[i]);
-		// }
-
-		// int[] path=new int[3];
-		// printPaths(root, path, 0);
-
-		// System.out.println("Tree1 elements in In order traversal original:");
-		// ArrayList list=preOrder(root1);
-		// for(int i=0;i<list.size();i++){
-		// System.out.println(list.get(i));
-		// }
-		// doubleTree(root1);
-
-		// System.out.println(areSameTrees(root1, root2));
-		// inOrderIteration(root);
-
-		// System.out.println(hasPathSum(root, 100));
-
-		// System.out.println("Tree elements in pre-order ");
-		// preOrderIterative(root);
-
-		// int hieght=findHieght(root);
-		// System.out.println("Hieght of the Tree="+hieght);
-		// System.out.println(covers(root.right, -2));
-		// BTNode FCA=firstCommonAncestorOfBT(root, -3, -7);
-		// System.out.println("fisrt common ancestor of 3 and 5="+FCA.info);
-		// printNodesAtGivenLevel(root, 3);
-		// System.out.println(countNegAtGivenLevel(root, 3));
-
-		// ArrayList<LinkedList> arrayList=new ArrayList<LinkedList>();
-		// for(int i=0;i<hieght;i++){
-		// LinkedList list=new LinkedList();
-		// createListAtGivenLevel(root, i, list);
-		// System.out.println("At level "+i);
-		// list.display(list.head);
-		// list.head=null;
-		// }
-		// printBTInorder(root);
-		// printLevelOrderBFS(root);
-
+		
+	}
+	
+	static void setNode(BTNode t){
+		BTNode s=new BTNode(49);
+		System.out.println(t.info);
+		t=s;
+		System.out.println(t.info);
+	}
+	
+	static void modifyArrayList(ArrayList list){
+		list.add(30);
+	}
+	
+	static boolean doesRootAExistsInB(BTNode rootA,BTNode rootB){
+		if(rootA==null || rootB==null){
+			return false;
+		}
+		if(rootA.info==rootB.info){
+			return isASubsetOfB(rootA, rootB);
+		}
+		return doesRootAExistsInB(rootA, rootB.left ) || doesRootAExistsInB(rootA, rootB.right);
+	}
+	
+	static boolean isASubsetOfB(BTNode rootA, BTNode rootB){
+		
+		if(rootA==null){
+			return true;
+		}
+		if(rootB==null){
+			return false;
+		}
+		
+		if(rootA.info!=rootB.info){
+			return false;
+		}else{
+			return isASubsetOfB(rootA.left,rootB.left) && isASubsetOfB(rootA.right,rootB.right);
+		}
+	}
+	
+	static BTNode makeLevelOrderBT(int info,BTNode root){
+		if(root==null){
+			root=new BTNode(info);
+			return root;
+		}
+		Queue<BTNode> queue = new java.util.LinkedList();
+		queue.add(root);
+		while(!queue.isEmpty()){
+			BTNode node = queue.remove();
+			if(node.left==null){
+				node.left = new BTNode(info);
+				return root;
+			}
+			if(node.right==null){
+				node.right=new BTNode(info);
+				return root;
+			}
+			queue.add(node.left);
+			queue.add(node.right);
+		}
+		return root;
 	}
 	
 	static int maxSumInBT(BTNode root){
