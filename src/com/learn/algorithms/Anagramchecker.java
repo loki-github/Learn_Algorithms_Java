@@ -4,7 +4,7 @@ public class Anagramchecker {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println(isAnagram("two plus one is three", "one plus two is thre"));
+		System.out.println(isAnagram("secure", "rescue"));
 	}
 	
 	private static boolean isAnagram(String str1,String str2){
